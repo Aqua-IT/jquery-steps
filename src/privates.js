@@ -506,7 +506,7 @@ function initialize(options)
             getStepAnchor(wizard, opts.startIndex).focus();
         }
 
-        wizard.triggerHandler("init", [opts.startIndex]);
+        wizard.triggerHandler("init", [state.currentIndex]);
     });
 }
 
