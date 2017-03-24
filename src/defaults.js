@@ -251,6 +251,16 @@ var defaults = $.fn.steps.defaults = {
     saveState: false,
 
     /**
+     * Number of days before the saveState cookie should expire.
+     *
+     * @property cookieExpires
+     * @type Integer
+     * @default 1
+     * @for defaults
+     **/
+    cookieExpires: 1,
+
+    /**
      * The position to start on (zero-based).
      *
      * @property startIndex

@@ -105,10 +105,10 @@ function analyzeData(wizard, options, state)
     state.stepCount = stepTitles.length;
 
     // Tries to load the saved state (step position)
-    if (options.saveState && $.cookie)
+    if (options.saveState && window.Cookies)
     {
-        var savedState = $.cookie(_cookiePrefix + getUniqueId(wizard));
-        // Sets the saved position to the start index if not undefined or out of range 
+        var savedState = Cookies.get(_cookiePrefix + getUniqueId(wizard));
+        // Sets the saved position to the start index if not undefined or out of range
         var savedIndex = parseInt(savedState, 0);
         if (!isNaN(savedIndex) && savedIndex < state.stepCount)
         {
@@ -1125,9 +1125,9 @@ function renderTitle(wizard, options, state, header, index)
  */
 function saveCurrentStateToCookie(wizard, options, state)
 {
-    if (options.saveState && $.cookie)
+    if (options.saveState && window.Cookies)
     {
-        $.cookie(_cookiePrefix + getUniqueId(wizard), state.currentIndex);
+        Cookies.set(_cookiePrefix + getUniqueId(wizard), state.currentIndex, { expires: options.cookieExpires });
     }
 }
 
